@@ -1,0 +1,13 @@
+RegisterNetEvent("jailPlayer")
+AddEventHandler("jailPlayer", function(minutes)
+    local jailPosition = vector3(1641.6, 2571.0, 45.5)
+    SetEntityCoords(GetPlayerPed(-1), jailPosition.x, jailPosition.y, jailPosition.z)
+    TriggerEvent("chat:addMessage", { args = { "SYSTEM", "You are jailed for " .. minutes .. " minutes." } })
+end)
+
+RegisterNetEvent("unjailPlayer")
+AddEventHandler("unjailPlayer", function()
+    local releasePosition = vector3(1854.0, 2622.0, 45.0)
+    SetEntityCoords(GetPlayerPed(-1), releasePosition.x, releasePosition.y, releasePosition.z)
+    TriggerEvent("chat:addMessage", { args = { "SYSTEM", "You have been released from jail." } })
+end)
